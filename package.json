@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "aws-amplify": "^6.17.0",
+    "openid-client": "^6.8.4",
+    "react-oidc-context": "^3.3.1"
+  }
+}
