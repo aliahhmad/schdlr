@@ -1,0 +1,21 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum UserRole {
+  OWNER
+}
+
+model User {
+  id          Int       @id @default(autoincrement())
+  cognitoSub  String    @unique
+  email       String    @unique
+  phone       String?
+  role        UserRole  @default(OWNER)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}

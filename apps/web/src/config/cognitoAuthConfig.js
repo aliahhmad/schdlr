@@ -3,7 +3,7 @@ export const cognitoDomain =
   "https://us-east-2g2hytc2gd.auth.us-east-2.amazoncognito.com";
 
 const appOrigin = window.location.origin;
-const redirectUri = `${appOrigin}/home`;
+const redirectUri = `${appOrigin}/callback`;
 const logoutUri = `${appOrigin}/login`;
 const scope = "email openid phone";
 

@@ -1,7 +1,9 @@
 {
   "dependencies": {
+    "@prisma/client": "^7.8.0",
     "aws-amplify": "^6.17.0",
     "openid-client": "^6.8.4",
+    "prisma": "^7.8.0",
     "react-oidc-context": "^3.3.1"
   }
 }

@@ -36,7 +36,11 @@ function App() {
         <Route
           path="/home"
           element={
-            auth.isAuthenticated ? <HomePage /> : <Navigate to="/login" replace />
+            auth.isAuthenticated ? (
+              <HomePage />
+            ) : (
+              <Navigate to="/login" replace />
+            )
           }
         />
         <Route path="/callback" element={<CallbackPage />} />

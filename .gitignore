@@ -28,3 +28,6 @@ dist-ssr
 
 # extra
 project-context.txt
+
+# prisma
+apps/api/src/generated/prisma

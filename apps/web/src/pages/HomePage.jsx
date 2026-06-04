@@ -14,7 +14,6 @@ function HomePage() {
       <h1>Welcome to the Home Page!</h1>
       <p>This is the main landing page of our web application.</p>
       <p className="text-body-secondary">
-        {console.log("Auth user:", auth.user)}
         Signed in as {auth.user?.profile.email}
       </p>
       <button className="btn btn-outline-primary" onClick={handleSignOut}>
