@@ -1,5 +1,5 @@
 import { useAuth } from "react-oidc-context";
-import { getCognitoLogoutUrl } from "../config/cognitoAuthConfig";
+import { getCognitoLogoutUrl } from "../../config/cognitoAuthConfig";
 
 function HomePage() {
   const auth = useAuth();
@@ -22,5 +22,5 @@ function HomePage() {
     </div>
   );
 }
- 
+
 export default HomePage;

@@ -1,7 +1,7 @@
 const PageFooter = () => {
     return (
         <footer className="page-footer">
-            &copy; {new Date().getFullYear()} schdlr. All rights reserved.
+            &copy; {new Date().getFullYear()} Schdlr. All rights reserved.
         </footer>
     );
 };

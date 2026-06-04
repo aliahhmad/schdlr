@@ -1,33 +1,30 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "react-oidc-context";
-import PageFooter from "../layout/PageFooter";
+import PageFooter from "../../../layout/PageFooter";
+import { getCognitoSignupUrl } from "../../../config/cognitoAuthConfig";
 
-function LoginPage() {
-  const auth = useAuth();
-
+function SignupPage() {
   return (
     <div className="d-flex flex-column min-vh-100 bg-body-tertiary">
       <main className="d-flex flex-grow-1 align-items-center justify-content-center py-4">
-        <div className="form-signin w-100 m-auto">
+        <div className="form-signup w-100 m-auto">
           <img
             src="./../public/logo/schdlr_logo_1_2_blue.png"
             alt="schdlr logo"
             height="57"
             className="mb-4 border rounded-2"
           />
-          <h1 className="h3 mb-3 fw-normal">Sign in</h1>
+          <h1 className="h3 mb-3 fw-normal">Sign up</h1>
           <p className="text-body-secondary">
-            Sign in to your account through Cognito.
+            Create a new account through Cognito.
           </p>
-          <button
+          <a
             className="btn btn-primary w-100 py-2"
-            type="button"
-            onClick={() => auth.signinRedirect()}
+            href={getCognitoSignupUrl()}
           >
-            Sign in with Cognito
-          </button>
+            Sign up with Cognito
+          </a>
           <p className="mt-3 mb-0 text-body-secondary">
-            Need an account? <Link to="/signup">Sign up</Link>
+            Already have an account? <Link to="/login">Sign in</Link>
           </p>
         </div>
       </main>
@@ -36,4 +33,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default SignupPage;

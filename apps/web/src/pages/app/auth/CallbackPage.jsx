@@ -35,14 +35,14 @@ function CallbackPage() {
   }
 
   if (!auth.isAuthenticated) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/auth/login" replace />;
   }
 
   if (!synced) {
     return <div>Setting up your account...</div>;
   }
 
-  return <Navigate to="/home" replace />;
+  return <Navigate to="/app/dashboard" replace />;
 }
 
 export default CallbackPage;
