@@ -4,7 +4,7 @@ export const cognitoDomain =
 
 const appOrigin = window.location.origin;
 const redirectUri = `${appOrigin}/auth/callback`;
-const logoutUri = `${appOrigin}/auth/login`;
+const logoutUri = `${appOrigin}`;
 const scope = "email openid phone";
 
 const cognitoAuthConfig = {
