@@ -4,9 +4,9 @@ import { getCognitoLogoutUrl } from "../../config/cognitoAuthConfig";
 function HomePage() {
   const auth = useAuth();
 
-  async function handleSignOut() {
-    await auth.removeUser();
-    window.location.href = getCognitoLogoutUrl();
+  function handleSignOut() {
+    const logoutUrl = getCognitoLogoutUrl();
+    window.location.href = logoutUrl;
   }
 
   return (

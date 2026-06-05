@@ -7,7 +7,8 @@ import HomePage from "../pages/marketing/HomePage";
 // Auth pages
 import LoginPage from "../pages/app/auth/LoginPage";
 import SignupPage from "../pages/app/auth/SignupPage";
-import CallbackPage from "../pages/app/auth/CallbackPage";
+import AuthCallbackPage from "../pages/app/auth/AuthCallbackPage";
+import LogoutCallbackPage from "../pages/app/logout/LogoutCallbackPage";
 
 // App pages (protected)
 import DashboardPage from "../pages/app/DashboardPage";
@@ -21,7 +22,8 @@ export function AppRoutes() {
       {/* Auth routes (public) */}
       <Route path="/auth/login" element={<LoginPage />} />
       <Route path="/auth/signup" element={<SignupPage />} />
-      <Route path="/auth/callback" element={<CallbackPage />} />
+      <Route path="/auth/callback" element={<AuthCallbackPage />} />
+      <Route path="/logout/callback" element={<LogoutCallbackPage />} />
 
       {/* App routes (protected) */}
       <Route
