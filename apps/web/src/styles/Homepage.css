@@ -1,6 +1,6 @@
 /* ── GLOBAL ── */
 :root {
-  --blue: #1558C0;
+  --blue: #1558c0;
   --blue-dark: #0e3f8f;
   --blue-light: #e8f0fc;
   --blue-mid: #2d6dd4;
@@ -14,25 +14,36 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--text);
   background: #fff;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Sora', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Sora", sans-serif;
 }
 
 /* ── NAVBAR ── */
 .lp-navbar {
   background: #fff;
   border-bottom: 1.5px solid var(--border);
-  padding: 0.85rem 0;
+  padding: 1rem 0;
+  transition: padding 0.3s ease;
+}
+
+.lp-navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .lp-brand-mark {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-weight: 800;
   font-size: 1.5rem;
   color: var(--blue);
@@ -41,56 +52,183 @@ h1, h2, h3, h4, h5 {
   padding-bottom: 1px;
   line-height: 1;
   text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.lp-brand-mark:hover {
+  transform: scale(1.05);
 }
 
 .lp-nav-link {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.88rem;
   font-weight: 500;
   color: var(--text) !important;
-  padding: 0.4rem 0.9rem !important;
-  transition: color 0.2s;
+  padding: 0.5rem 1rem !important;
+  transition: all 0.3s ease;
   text-decoration: none;
+  position: relative;
+  border-radius: 6px;
+}
+
+.lp-nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  width: 0;
+  height: 2px;
+  background: var(--blue);
+  transition: width 0.3s ease;
 }
 
 .lp-nav-link:hover {
   color: var(--blue) !important;
+  background: var(--blue-light);
+}
+
+.lp-nav-link:hover::after {
+  width: calc(100% - 2rem);
 }
 
 .lp-btn-nav-login {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.88rem;
   font-weight: 600;
   border: 1.5px solid var(--blue);
   color: var(--blue);
-  padding: 0.4rem 1.2rem;
+  padding: 0.5rem 1.3rem;
   border-radius: 6px;
   background: transparent;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .lp-btn-nav-login:hover {
   background: var(--blue);
   color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(21, 88, 192, 0.25);
 }
 
 .lp-btn-nav-cta {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.88rem;
   font-weight: 600;
   background: var(--blue);
   color: #fff;
-  padding: 0.4rem 1.2rem;
+  padding: 0.5rem 1.3rem;
   border-radius: 6px;
   border: none;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .lp-btn-nav-cta:hover {
   background: var(--blue-dark);
   color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(21, 88, 192, 0.3);
+}
+
+/* Navbar Mobile Menu */
+.navbar-toggler {
+  padding: 0.25rem !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.25rem rgba(21, 88, 192, 0.25) !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%231558C0' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+@media (max-width: 991px) {
+  .lp-navbar {
+    padding: 0.75rem 0;
+  }
+
+  .lp-brand-mark {
+    font-size: 1.3rem;
+  }
+
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1.5px solid var(--border);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    padding: 1rem;
+    margin-top: 0.5rem;
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem !important;
+  }
+
+  .lp-nav-link {
+    padding: 0.6rem 0.8rem !important;
+    font-size: 0.95rem;
+  }
+
+  .lp-nav-link::after {
+    display: none;
+  }
+
+  .d-flex {
+    flex-direction: column !important;
+    width: 100%;
+    gap: 0.75rem !important;
+  }
+
+  .lp-btn-nav-login,
+  .lp-btn-nav-cta {
+    width: 100%;
+    padding: 0.65rem 1rem !important;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .lp-brand-mark {
+    font-size: 1.2rem;
+  }
+
+  .lp-nav-link {
+    padding: 0.5rem 0.8rem !important;
+    font-size: 0.9rem;
+  }
+
+  .navbar-collapse {
+    padding: 0.75rem;
+  }
+
+  .navbar-nav {
+    gap: 0.25rem;
+    margin-bottom: 0.75rem !important;
+  }
 }
 
 /* ── HERO ── */
@@ -102,13 +240,17 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -80px;
   right: -120px;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(21, 88, 192, 0.08) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(21, 88, 192, 0.08) 0%,
+    transparent 70%
+  );
   border-radius: 50%;
   pointer-events: none;
 }
@@ -119,7 +261,7 @@ h1, h2, h3, h4, h5 {
   gap: 0.4rem;
   background: var(--blue-light);
   color: var(--blue);
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   padding: 0.35rem 0.9rem;
@@ -157,7 +299,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-btn-hero-primary {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
   background: var(--blue);
@@ -165,7 +307,9 @@ h1, h2, h3, h4, h5 {
   padding: 0.75rem 2rem;
   border-radius: 8px;
   border: none;
-  transition: background 0.2s, transform 0.15s;
+  transition:
+    background 0.2s,
+    transform 0.15s;
   box-shadow: 0 4px 18px rgba(21, 88, 192, 0.25);
   cursor: pointer;
   text-decoration: none;
@@ -181,7 +325,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-btn-hero-secondary {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text);
@@ -228,7 +372,7 @@ h1, h2, h3, h4, h5 {
   font-weight: 700;
   color: #fff;
   margin-left: -8px;
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
 }
 
 .lp-trust-avatars span:first-child {
@@ -243,7 +387,9 @@ h1, h2, h3, h4, h5 {
 .lp-mock-card {
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 8px 40px rgba(21, 88, 192, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 8px 40px rgba(21, 88, 192, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.06);
   padding: 1.5rem;
   border: 1px solid var(--border);
 }
@@ -256,7 +402,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-mock-title {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--text);
@@ -267,7 +413,7 @@ h1, h2, h3, h4, h5 {
   color: #2e7d32;
   font-size: 0.7rem;
   font-weight: 700;
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   padding: 0.2rem 0.6rem;
   border-radius: 100px;
 }
@@ -311,7 +457,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-mock-appt-name {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--text);
@@ -323,7 +469,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-mock-appt-amt {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
   color: var(--blue);
@@ -354,12 +500,12 @@ h1, h2, h3, h4, h5 {
 .lp-mock-stat-label {
   font-size: 0.65rem;
   color: var(--muted);
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-weight: 500;
 }
 
 .lp-mock-stat-val {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 1.1rem;
   font-weight: 800;
   color: var(--text);
@@ -379,7 +525,7 @@ h1, h2, h3, h4, h5 {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   border: 1px solid var(--border);
@@ -411,7 +557,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-logos-strip p {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--muted);
@@ -421,7 +567,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-logo-placeholder {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-weight: 700;
   font-size: 0.9rem;
   color: #8fa8cc;
@@ -438,7 +584,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-section-label {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--blue);
@@ -469,7 +615,10 @@ h1, h2, h3, h4, h5 {
   border-radius: 14px;
   padding: 1.75rem;
   height: 100%;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
 }
 
 .lp-feature-card:hover {
@@ -511,7 +660,7 @@ h1, h2, h3, h4, h5 {
   border-radius: 50%;
   background: var(--blue);
   color: #fff;
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-weight: 800;
   font-size: 1.1rem;
   display: flex;
@@ -526,7 +675,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-step-connector::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 24px;
   left: calc(50% + 28px);
@@ -543,7 +692,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-step-title {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -561,7 +710,9 @@ h1, h2, h3, h4, h5 {
   border-radius: 16px;
   padding: 2rem;
   height: 100%;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .lp-price-card:hover {
@@ -600,7 +751,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-price-label {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -610,7 +761,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-price-amt {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-weight: 800;
   font-size: 2.5rem;
   letter-spacing: -0.04em;
@@ -652,7 +803,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-btn-price {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.9rem;
   font-weight: 700;
   width: 100%;
@@ -683,7 +834,7 @@ h1, h2, h3, h4, h5 {
 .lp-popular-chip {
   background: rgba(255, 255, 255, 0.2);
   color: #fff;
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   padding: 0.2rem 0.65rem;
@@ -719,7 +870,7 @@ h1, h2, h3, h4, h5 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-weight: 800;
   font-size: 0.8rem;
   color: #fff;
@@ -727,7 +878,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-testi-name {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
 }
@@ -748,7 +899,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-cta-band::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -60px;
   right: -80px;
@@ -760,7 +911,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-cta-band::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -80px;
   left: -40px;
@@ -787,7 +938,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-btn-cta-white {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-weight: 700;
   font-size: 1rem;
   background: #fff;
@@ -795,7 +946,9 @@ h1, h2, h3, h4, h5 {
   border: none;
   padding: 0.8rem 2.2rem;
   border-radius: 8px;
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   display: inline-flex;
@@ -810,7 +963,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-btn-cta-outline {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
   background: transparent;
@@ -818,7 +971,9 @@ h1, h2, h3, h4, h5 {
   border: 1.5px solid rgba(255, 255, 255, 0.4);
   padding: 0.8rem 2rem;
   border-radius: 8px;
-  transition: border-color 0.2s, background 0.2s;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
   cursor: pointer;
 }
 
@@ -836,7 +991,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-footer-brand {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-weight: 800;
   font-size: 1.5rem;
   color: #fff;
@@ -865,7 +1020,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .lp-footer-heading {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
   color: #fff;
@@ -904,4 +1059,27 @@ h1, h2, h3, h4, h5 {
   font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.35);
   margin-bottom: 0;
+}
+
+/* ── RESPONSIVE HERO ACTIONS ── */
+@media (max-width: 768px) {
+  .lp-hero-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .lp-btn-hero-primary,
+  .lp-btn-hero-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.5rem !important;
+  }
+
+  .lp-hero-trust {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 }

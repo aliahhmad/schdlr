@@ -141,10 +141,7 @@ const testimonials = [
   },
 ];
 
-const integrations = [
-  "Google Calendar",
-  "Zoom",
-];
+const integrations = ["Google Calendar", "Zoom"];
 
 const footerLinks = {
   Product: ["Features", "Pricing", "Integrations", "Changelog"],
@@ -161,12 +158,12 @@ export default function HomePage() {
       {/* ── NAVBAR ── */}
       <nav className="lp-navbar navbar navbar-expand-lg sticky-top">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="#" aria-label="schdlr home">
             <span className="lp-brand-mark">schdlr</span>
           </a>
 
           <button
-            className="navbar-toggler border-0"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#lpMainNav"
@@ -179,21 +176,32 @@ export default function HomePage() {
 
           <div className="collapse navbar-collapse" id="lpMainNav">
             <ul className="navbar-nav mx-auto">
-              {["features", "how", "pricing", "testimonials"].map((id) => (
+              {[
+                { id: "features", label: "Features" },
+                { id: "how", label: "How it works" },
+                { id: "pricing", label: "Pricing" },
+                { id: "testimonials", label: "Testimonials" },
+              ].map(({ id, label }) => (
                 <li className="nav-item" key={id}>
                   <a className="lp-nav-link nav-link" href={`#${id}`}>
-                    {id === "how"
-                      ? "How it works"
-                      : id.charAt(0).toUpperCase() + id.slice(1)}
+                    {label}
                   </a>
                 </li>
               ))}
             </ul>
             <div className="d-flex gap-2 mt-3 mt-lg-0">
-              <button className="lp-btn-nav-login" onClick={() => (window.location.href = "/auth/login")}>
+              <button
+                className="lp-btn-nav-login"
+                onClick={() => (window.location.href = "/auth/login")}
+                aria-label="Log in to schdlr"
+              >
                 Log in
               </button>
-              <button className="lp-btn-nav-cta" onClick={() => (window.location.href = "/auth/signup")}>
+              <button
+                className="lp-btn-nav-cta"
+                onClick={() => (window.location.href = "/auth/signup")}
+                aria-label="Start free trial"
+              >
                 Start free
               </button>
             </div>
@@ -225,10 +233,16 @@ export default function HomePage() {
               </p>
 
               <div className="lp-hero-actions">
-                <button className="lp-btn-hero-primary" onClick={() => (window.location.href = "/auth/signup")}>
+                <button
+                  className="lp-btn-hero-primary"
+                  onClick={() => (window.location.href = "/auth/signup")}
+                >
                   Get started free <i className="bi bi-arrow-right" />
                 </button>
-                <button className="lp-btn-hero-secondary" onClick={() => (window.location.href = "/auth/login")}>
+                <button
+                  className="lp-btn-hero-secondary"
+                  onClick={() => (window.location.href = "/auth/login")}
+                >
                   <i className="bi bi-play-circle-fill text-primary" />
                   See a demo
                 </button>
