@@ -28,6 +28,16 @@ h5 {
   font-family: "Sora", sans-serif;
 }
 
+/* ── DEVELOPMENT BANNER ── */
+.lp-development-banner {
+  background: var(--blue-dark);
+  color: #fff;
+  padding: 0.75rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
 /* ── NAVBAR ── */
 .lp-navbar {
   background: #fff;

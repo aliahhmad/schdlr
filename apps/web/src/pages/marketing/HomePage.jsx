@@ -1,4 +1,4 @@
-import "../../styles/HomePage.css";
+import "../../styles/Homepage.css";
 
 // ── DATA ──────────────────────────────────────────────────────────────────────
 
@@ -155,6 +155,12 @@ const footerLinks = {
 export default function HomePage() {
   return (
     <>
+      <div className="lp-development-banner" role="status">
+        <div className="container">
+          <strong>Coming soon</strong> — Schdlr is currently in development.
+        </div>
+      </div>
+
       {/* ── NAVBAR ── */}
       <nav className="lp-navbar navbar navbar-expand-lg sticky-top">
         <div className="container">
@@ -191,15 +197,15 @@ export default function HomePage() {
             </ul>
             <div className="d-flex gap-2 mt-3 mt-lg-0">
               <button
+                type="button"
                 className="lp-btn-nav-login"
-                onClick={() => (window.location.href = "/auth/login")}
                 aria-label="Log in to schdlr"
               >
                 Log in
               </button>
               <button
+                type="button"
                 className="lp-btn-nav-cta"
-                onClick={() => (window.location.href = "/auth/signup")}
                 aria-label="Start free trial"
               >
                 Start free
@@ -234,14 +240,14 @@ export default function HomePage() {
 
               <div className="lp-hero-actions">
                 <button
+                  type="button"
                   className="lp-btn-hero-primary"
-                  onClick={() => (window.location.href = "/auth/signup")}
                 >
                   Get started free <i className="bi bi-arrow-right" />
                 </button>
                 <button
+                  type="button"
                   className="lp-btn-hero-secondary"
-                  onClick={() => (window.location.href = "/auth/login")}
                 >
                   <i className="bi bi-play-circle-fill text-primary" />
                   See a demo
@@ -460,6 +466,7 @@ export default function HomePage() {
                   </ul>
 
                   <button
+                    type="button"
                     className={`lp-btn-price${plan.featured ? " filled" : ""}`}
                   >
                     {plan.cta}
@@ -513,10 +520,12 @@ export default function HomePage() {
             WhatsApp, and manual invoices with one elegant platform.
           </p>
           <div className="d-flex justify-content-center gap-3 flex-wrap">
-            <button className="lp-btn-cta-white">
+            <button type="button" className="lp-btn-cta-white">
               Start free — no credit card <i className="bi bi-arrow-right" />
             </button>
-            <button className="lp-btn-cta-outline">Book a demo</button>
+            <button type="button" className="lp-btn-cta-outline">
+              Book a demo
+            </button>
           </div>
         </div>
       </section>
